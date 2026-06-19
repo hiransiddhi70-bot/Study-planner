@@ -141,6 +141,56 @@
                     <div class="flashcard-back" id="flashcardBack">Answer here</div>
                 </div>
                 <button class="btn btn-secondary" id="nextCardBtn" style="width:100%;margin-top:15px;">Next Card</button>
+<!-- WEEKLY REPORT -->
+<div class="card">
+    <div class="card-header">
+        <div class="card-icon" style="background: #ddd6fe;">📊</div>
+        <div class="card-title">Weekly Report</div>
+    </div>
+    <button class="btn btn-primary" id="generateReport" style="width:100%;">Generate Report</button>
+    <div class="chart-container" style="margin-top:15px;">
+        <canvas id="weeklyChart"></canvas>
+    </div>
+</div>
+
+<!-- CGPA CALCULATOR -->
+<div class="card">
+    <div class="card-header">
+        <div class="card-icon" style="background: #fed7aa;">🧮</div>
+        <div class="card-title">CGPA Calculator</div>
+    </div>
+    <div class="input-group">
+        <label>Subject 1 Marks</label>
+        <input type="number" id="sub1" placeholder="Out of 100" max="100">
+    </div>
+    <div class="input-group">
+        <label>Subject 2 Marks</label>
+        <input type="number" id="sub2" placeholder="Out of 100" max="100">
+    </div>
+    <div class="input-group">
+        <label>Subject 3 Marks</label>
+        <input type="number" id="sub3" placeholder="Out of 100" max="100">
+    </div>
+    <button class="btn btn-primary" id="calcCGPA" style="width:100%;">Calculate CGPA</button>
+    <div style="text-align:center;margin-top:15px;" id="cgpaResult">
+        <div class="stat-label">Your CGPA</div>
+    </div>
+</div>
+
+<!-- LOFI PLAYER -->
+<div class="card">
+    <div class="card-header">
+        <div class="card-icon" style="background: #fbcfe8;">🎵</div>
+        <div class="card-title">Focus Beats</div>
+    </div>
+    <select class="input-group" id="musicSelect" style="margin-bottom:15px;width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;">
+        <option value="">Select Lofi Beat</option>
+        <option value="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3">Chill Lofi</option>
+        <option value="https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3">Rainy Study</option>
+        <option value="https://cdn.pixabay.com/audio/2023/03/27/audio_e3e4b3a6a3.mp3">Deep Focus</option>
+    </select>
+    <audio id="lofiPlayer" controls style="width:100%;"></audio>
+</div>
             </div>
         </div>
     </div>
