@@ -338,5 +338,6 @@ document.getElementById('saveProfile')?.addEventListener('click', () => {
 loadProfile();
 
 // Pomodoro complete hone pe hours update kar - startTimer function mein ye line add kar:
-// updateTotalHours(); // alert('🎉 Pomodoro Complete!') wali line ke baad
+// updateTotalHours(); // alert('🎉 Pomodoro Complete!')
+updateTotalHours();
 });
