@@ -258,4 +258,36 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (examData) updateCountdown();
+// ========== V1.2: WEEKLY REPORT ==========
+document.getElementById('generateReport')?.addEventListener('click', () => {
+    const weeklyData = [4, 6, 3, 8, 5, 7, sessions]; // Last 7 days
+    new Chart(document.getElementById('weeklyChart'), {
+        type: 'bar',
+        data: {
+            labels: ['Mon','Tue','Wed','Thu','Fri','Sat','Sun'],
+            datasets: [{ label: 'Sessions', data: weeklyData, backgroundColor: '#6366f1' }]
+        },
+        options: { responsive: true, maintainAspectRatio: false }
+    });
+});
+
+// ========== V1.2: CGPA CALCULATOR ==========
+document.getElementById('calcCGPA')?.addEventListener('click', () => {
+    const s1 = parseFloat(document.getElementById('sub1').value) || 0;
+    const s2 = parseFloat(document.getElementById('sub2').value) || 0;
+    const s3 = parseFloat(document.getElementById('sub3').value) || 0;
+    const avg = (s1 + s2 + s3) / 3;
+    const cgpa = (avg / 10).toFixed(2);
+    document.getElementById('cgpaResult').innerHTML = `
+        <div class="stat-value">${cgpa}</div>
+        <div class="stat-label">${avg >= 90? 'Grade: A+' : avg >= 80? 'Grade: A' : 'Keep Going!'}</div>
+    `;
+});
+
+// ========== V1.2: LOFI PLAYER ==========
+document.getElementById('musicSelect')?.addEventListener('change', (e) => {
+    const player = document.getElementById('lofiPlayer');
+    player.src = e.target.value;
+    if(e.target.value) player.play();
+});
 });
