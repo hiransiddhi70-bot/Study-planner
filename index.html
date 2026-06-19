@@ -15,6 +15,58 @@
         </div>
 
         <div class="grid">
+            <!-- STUDENT PROFILE -->
+<div class="card" style="grid-column: 1 / -1;">
+    <div class="card-header">
+        <div class="card-icon" style="background: #c7d2fe;">👤</div>
+        <div class="card-title">My Profile</div>
+        <button class="btn btn-secondary" id="editProfileBtn" style="margin-left:auto;">Edit</button>
+    </div>
+    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+        <img id="profilePic" src="https://via.placeholder.com/80/6366f1/ffffff?text=You" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+        <div style="flex:1;">
+            <h3 id="profileName" style="margin-bottom:5px;">Student Name</h3>
+            <p id="profileCourse" style="color:var(--text-light);margin-bottom:5px;">Class/Course</p>
+            <p id="profileTarget" style="color:var(--primary);font-weight:600;">Target: Not Set</p>
+            <p id="profileBio" style="color:var(--text-light);font-size:0.9rem;margin-top:8px;">Add your bio...</p>
+        </div>
+        <div class="stat-box">
+            <div class="stat-value" id="totalHours">0</div>
+            <div class="stat-label">Total Hours</div>
+        </div>
+    </div>
+</div>
+
+<!-- PROFILE EDIT MODAL -->
+<div id="profileModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+    <div class="card" style="max-width:400px;width:90%;">
+        <h3 style="margin-bottom:20px;">Edit Profile</h3>
+        <div class="input-group">
+            <label>Name</label>
+            <input type="text" id="editName" placeholder="Tera naam">
+        </div>
+        <div class="input-group">
+            <label>Photo URL</label>
+            <input type="text" id="editPic" placeholder="https://image-link.jpg">
+        </div>
+        <div class="input-group">
+            <label>Class/Course</label>
+            <input type="text" id="editCourse" placeholder="12th Science / B.Tech CSE">
+        </div>
+        <div class="input-group">
+            <label>Target Exam</label>
+            <input type="text" id="editTarget" placeholder="JEE 2027 / NEET 2026">
+        </div>
+        <div class="input-group">
+            <label>Bio</label>
+            <input type="text" id="editBio" placeholder="AIR 1 laana hai 💪">
+        </div>
+        <div style="display:flex;gap:10px;">
+            <button class="btn btn-primary" id="saveProfile" style="flex:1;">Save</button>
+            <button class="btn btn-secondary" id="closeProfile" style="flex:1;">Cancel</button>
+        </div>
+    </div>
+</div>
             <!-- POMODORO TIMER -->
             <div class="card">
                 <div class="card-header">
