@@ -360,3 +360,35 @@ body {
         grid-template-columns: 1fr;
     }
 }
+/* DARK MODE */
+body.dark-mode {
+    --bg: #0f172a;
+    --card: #1e293b;
+    --text: #f1f5f9;
+    --text-light: #94a3b8;
+    --border: #334155;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-mode .stat-box {
+    background: #334155;
+}
+
+body.dark-mode input, 
+body.dark-mode select {
+    background: #334155;
+    color: var(--text);
+    border-color: #475569;
+}
+
+body.dark-mode .habit-day {
+    background: #334155;
+}
+
+body.dark-mode .flashcard {
+    background: #334155;
+}
+
+body.dark-mode #profileModal .card {
+    background: var(--card);
+}
