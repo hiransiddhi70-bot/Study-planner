@@ -19,7 +19,7 @@
 
 ### 🎯 Kaise Use Karein?
 
-1. **Live link kholo** → https://i70-bot.github.io/study-planner
+1. **Live link kholo** → https://hiransiddhi70-bot.github.io/Study-planner/
 2. **"Add to Home Screen"** kar lo → App jaise chalega phone pe
 3. **Timer start karo** → Goals set karo → Streak banao
 4. **Sab kuch auto-save** ho jata hai. Band karo, kal kholo - data wahi milega
