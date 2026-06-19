@@ -290,4 +290,53 @@ document.getElementById('musicSelect')?.addEventListener('change', (e) => {
     player.src = e.target.value;
     if(e.target.value) player.play();
 });
+// ========== V1.3: STUDENT PROFILE ==========
+let profile = JSON.parse(localStorage.getItem('studentProfile') || '{"name":"Student Name","pic":"https://via.placeholder.com/80/6366f1/ffffff?text=You","course":"Class/Course","target":"Not Set","bio":"Add your bio..."}');
+let totalStudyMins = parseInt(localStorage.getItem('totalStudyMins') || '0');
+
+function loadProfile() {
+    document.getElementById('profileName').textContent = profile.name;
+    document.getElementById('profilePic').src = profile.pic;
+    document.getElementById('profileCourse').textContent = profile.course;
+    document.getElementById('profileTarget').textContent = `Target: ${profile.target}`;
+    document.getElementById('profileBio').textContent = profile.bio;
+    document.getElementById('totalHours').textContent = Math.floor(totalStudyMins / 60);
+}
+
+// Update total hours jab bhi session complete ho
+function updateTotalHours() {
+    totalStudyMins += 25; // Har pomodoro = 25 min
+    localStorage.setItem('totalStudyMins', totalStudyMins);
+    document.getElementById('totalHours').textContent = Math.floor(totalStudyMins / 60);
+}
+
+// Profile modal
+document.getElementById('editProfileBtn')?.addEventListener('click', () => {
+    document.getElementById('editName').value = profile.name;
+    document.getElementById('editPic').value = profile.pic;
+    document.getElementById('editCourse').value = profile.course;
+    document.getElementById('editTarget').value = profile.target;
+    document.getElementById('editBio').value = profile.bio;
+    document.getElementById('profileModal').style.display = 'flex';
+});
+
+document.getElementById('closeProfile')?.addEventListener('click', () => {
+    document.getElementById('profileModal').style.display = 'none';
+});
+
+document.getElementById('saveProfile')?.addEventListener('click', () => {
+    profile.name = document.getElementById('editName').value || 'Student Name';
+    profile.pic = document.getElementById('editPic').value || 'https://via.placeholder.com/80/6366f1/ffffff?text=You';
+    profile.course = document.getElementById('editCourse').value || 'Class/Course';
+    profile.target = document.getElementById('editTarget').value || 'Not Set';
+    profile.bio = document.getElementById('editBio').value || 'Add your bio...';
+    localStorage.setItem('studentProfile', JSON.stringify(profile));
+    loadProfile();
+    document.getElementById('profileModal').style.display = 'none';
+});
+
+loadProfile();
+
+// Pomodoro complete hone pe hours update kar - startTimer function mein ye line add kar:
+// updateTotalHours(); // alert('🎉 Pomodoro Complete!') wali line ke baad
 });
