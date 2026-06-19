@@ -8,9 +8,143 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-    <!-- Yahan poora <body> ka content daal de V1.1 wale code se -->
-    <!-- <div class="container"> se lekar </div> tak -->
-    
+    <div class="container">
+        <div class="header">
+            <h1>📚 Study Planner ⚡</h1>
+            <p>Your all-in-one productivity dashboard for students</p>
+        </div>
+
+        <div class="grid">
+            <!-- POMODORO TIMER -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #e0e7ff;">🍅</div>
+                    <div class="card-title">Pomodoro Timer</div>
+                </div>
+                <div class="timer-display" id="timer">25:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startBtn">Start</button>
+                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
+                </div>
+                <div class="stat-grid">
+                    <div class="stat-box">
+                        <div class="stat-value" id="sessions">0</div>
+                        <div class="stat-label">Sessions Today</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="streak">0</div>
+                        <div class="stat-label">Day Streak 🔥</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAILY GOALS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fce7f3;">🎯</div>
+                    <div class="card-title">Daily Goal</div>
+                </div>
+                <div class="input-group">
+                    <label>Set Today's Target Sessions</label>
+                    <input type="number" id="goalInput" placeholder="e.g. 8" min="1">
+                </div>
+                <button class="btn btn-primary" id="setGoalBtn" style="width:100%;">Set Goal</button>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="goalProgress" style="width:0%"></div>
+                </div>
+                <div style="text-align:center;margin-top:10px;font-weight:600;" id="goalText">Goal set nahi kiya</div>
+            </div>
+
+            <!-- EXAM COUNTDOWN -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">⏳</div>
+                    <div class="card-title">Exam Countdown</div>
+                </div>
+                <div class="input-group">
+                    <label>Exam Name</label>
+                    <input type="text" id="examNameInput" placeholder="JEE / NEET / Boards">
+                </div>
+                <div class="input-group">
+                    <label>Exam Date</label>
+                    <input type="date" id="examDateInput">
+                </div>
+                <button class="btn btn-primary" id="setExamBtn" style="width:100%;">Set Countdown</button>
+                <div style="text-align:center;margin-top:20px;" id="countdownDisplay">
+                    <div class="stat-label">Set your exam date</div>
+                </div>
+            </div>
+
+            <!-- ASSIGNMENTS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #dcfce7;">📝</div>
+                    <div class="card-title">Assignments</div>
+                </div>
+                <div class="input-group">
+                    <label>Task</label>
+                    <input type="text" id="assignmentInput" placeholder="Math Chapter 5 HW">
+                </div>
+                <div class="input-group">
+                    <label>Due Date</label>
+                    <input type="date" id="dueDateInput">
+                </div>
+                <button class="btn btn-primary" id="addAssignmentBtn" style="width:100%;">Add Task</button>
+                <div class="task-list" id="assignmentList" style="margin-top:15px;"></div>
+            </div>
+
+            <!-- HABIT TRACKER -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #dbeafe;">📅</div>
+                    <div class="card-title">30-Day Habit Tracker</div>
+                </div>
+                <p style="color:var(--text-light);font-size:0.9rem;margin-bottom:10px;">Click on date to mark as done</p>
+                <div class="habit-calendar" id="habitCalendar"></div>
+            </div>
+
+            <!-- MOOD TRACKER -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fce7f3;">😊</div>
+                    <div class="card-title">Mood Tracker</div>
+                </div>
+                <p style="text-align:center;color:var(--text-light);">How are you feeling today?</p>
+                <div class="mood-selector">
+                    <div class="mood-btn" data-mood="great">😄</div>
+                    <div class="mood-btn" data-mood="good">🙂</div>
+                    <div class="mood-btn" data-mood="okay">😐</div>
+                    <div class="mood-btn" data-mood="bad">😔</div>
+                    <div class="mood-btn" data-mood="awful">😭</div>
+                </div>
+            </div>
+
+            <!-- SUBJECT ANALYTICS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #e0e7ff;">📊</div>
+                    <div class="card-title">Subject Hours</div>
+                </div>
+                <div class="chart-container">
+                    <canvas id="subjectChart"></canvas>
+                </div>
+            </div>
+
+            <!-- FLASHCARDS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">🃏</div>
+                    <div class="card-title">Flashcards</div>
+                </div>
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-front" id="flashcardFront">Click to start</div>
+                    <div class="flashcard-back" id="flashcardBack">Answer here</div>
+                </div>
+                <button class="btn btn-secondary" id="nextCardBtn" style="width:100%;margin-top:15px;">Next Card</button>
+            </div>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
