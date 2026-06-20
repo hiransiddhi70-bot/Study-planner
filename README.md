@@ -1,12 +1,12 @@
 <div align="center">
 
-<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=35&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Study+Planner+AI+✨;Made+by+15yo+Coding+Queen+👑;Code+%2B+Coffee+%2B+Dreams+💻☕" alt="Typing SVG" />
+<img src="https://readme-typing-svg.herokuapp.com?font=Poppins&weight=600&size=35&pause=1000&color=8B5CF6&center=true&vCenter=true&width=600&lines=Study+Planner+AI+✨;Made+by+18yo+Coding+Queen+👑;Code+%2B+Coffee+%2B+Dreams+💻☕" alt="Typing SVG" />
 
 ### 🌸 *Padhai ko banaye Pinterest-worthy* 🌸
 
-[![Made with Love](https://img.shields.io/badge/Made%20with-💜%20by%20Siddhi-ff69b4?style=for-the-badge)](https://github.com/)
-[![15 Years Old](https://img.shields.io/badge/Age-15%20years%20young-8b5cf6?style=for-the-badge)](https://github.com/)
-[![Python Lover](https://img.shields.io/badge/Code-Python%20🐍-3776ab?style=for-the-badge)](https://github.com/)
+[[Made with Love](https://img.shields.io/badge/Made%20with-💜%20by%20Siddhi-ff69b4?style=for-the-badge)](https://github.com/)
+[[18 Years Young](https://img.shields.io/badge/Age-18%20years%20young-8b5cf6?style=for-the-badge)](https://github.com/)
+[[Python Lover](https://img.shields.io/badge/Code-Python%20🐍-3776ab?style=for-the-badge)](https://github.com/)
 
 <img src="https://user-images.githubusercontent.com/74038190/212284100-561aa473-3905-4a80-b561-0d28506553ee.gif" width="700">
 
@@ -18,7 +18,7 @@
 
 ## 🌈✨ *Hey there, study buddy!* ✨🌈
 
-> I'm **Siddhi**, 15yo from Nagpur 🇮🇳  
+> I'm **Siddhi**, 18yo from **Ahilyanagar** 🇮🇳  
 > I got tired of boring study apps... so I coded my own! 💅  
 > **This isn't just an app - it's a whole VIBE** 🦋
 
