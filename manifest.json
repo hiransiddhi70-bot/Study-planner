@@ -1,0 +1,22 @@
+{
+  "name": "Study Planner V1.5",
+  "short_name": "StudyPlan",
+  "description": "All-in-one productivity dashboard for students",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f8fafc",
+  "theme_color": "#6366f1",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://via.placeholder.com/192/6366f1/ffffff?text=SP",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://via.placeholder.com/512/6366f1/ffffff?text=SP",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
