@@ -97,3 +97,264 @@
                     <span>More</span>
                 </div>
             </div>
+            <!-- WHATSAPP SHARE -->
+            <div class="card" style="background: linear-gradient(135deg, #25D366, #128C7E); color: white;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: rgba(255,255,255,0.2);">📱</div>
+                    <div class="card-title" style="color:white;">Daily Report</div>
+                </div>
+                <p style="margin-bottom:15px;opacity:0.9;">Aaj ka progress WhatsApp pe share kar</p>
+                <div id="dailyReportPreview" style="background:rgba(0,0,0,0.2);padding:15px;border-radius:10px;font-size:0.9rem;margin-bottom:15px;white-space:pre-line;"></div>
+                <button class="btn" id="shareWhatsAppBtn" style="background:white;color:#25D366;width:100%;">📲 Share on WhatsApp</button>
+            </div>
+
+            <!-- AI STUDY COACH -->
+            <div class="card" style="grid-column: 1 / -1; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: rgba(255,255,255,0.2);">🤖</div>
+                    <div class="card-title" style="color:white;">AI Study Coach</div>
+                </div>
+                <p style="margin-bottom:15px;opacity:0.9;">Bata kya padhna hai, main poora plan bana dunga</p>
+                <div class="input-group">
+                    <input type="text" id="aiPrompt" placeholder="e.g. Kal Physics exam hai, 3 chapters: Motion, Force, Energy" style="background:rgba(255,255,255,0.15);border:2px solid rgba(255,255,255,0.3);color:white;">
+                </div>
+                <button class="btn" id="generatePlanBtn" style="background:white;color:#667eea;width:100%;">✨ Generate Study Plan</button>
+                <div id="aiPlanOutput" style="margin-top:15px;display:none;background:rgba(255,255,255,0.1);padding:15px;border-radius:12px;"></div>
+            </div>
+
+            <!-- DAILY QUESTS -->
+            <div class="card" style="background:linear-gradient(135deg,#f59e0b,#ef4444);color:white;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: rgba(255,255,255,0.2);">🎯</div>
+                    <div class="card-title" style="color:white;">Daily Quests</div>
+                    <span id="questTimer" style="margin-left:auto;font-size:0.9rem;opacity:0.9;">23:59:59</span>
+                </div>
+                <div id="questList" style="display:flex;flex-direction:column;gap:10px;"></div>
+            </div>
+
+            <!-- STUDENT PROFILE -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #c7d2fe;">👤</div>
+                    <div class="card-title">My Profile</div>
+                    <button class="btn btn-secondary" id="editProfileBtn" style="margin-left:auto;">Edit</button>
+                </div>
+                <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+                    <img id="profilePic" src="https://via.placeholder.com/80/6366f1/ffffff?text=You" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+                    <div style="flex:1;">
+                        <h3 id="profileName" style="margin-bottom:5px;">Student Name</h3>
+                        <p id="profileCourse" style="color:var(--text-light);margin-bottom:5px;">Class/Course</p>
+                        <p id="profileTarget" style="color:var(--primary);font-weight:600;">Target: Not Set</p>
+                    </div>
+                </div>
+                <div style="margin-top:15px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center;">
+                    <div><div style="font-size:1.5rem;font-weight:700;color:var(--primary);" id="totalXP">0</div><div style="font-size:0.8rem;color:var(--text-light);">Total XP</div></div>
+                    <div><div style="font-size:1.5rem;font-weight:700;color:var(--success);" id="profileStreak">0</div><div style="font-size:0.8rem;color:var(--text-light);">Streak</div></div>
+                    <div><div style="font-size:1.5rem;font-weight:700;color:var(--warning);" id="profileHours">0</div><div style="font-size:0.8rem;color:var(--text-light);">Hours</div></div>
+                </div>
+                <button class="btn btn-primary" id="streakFreezeBtn" style="width:100%;margin-top:15px;">❄️ Use Streak Freeze (100 XP)</button>
+            </div>
+
+            <!-- THEME SHOP -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #ddd6fe;">🎨</div>
+                    <div class="card-title">Theme Shop</div>
+                </div>
+                <div id="themeShop" style="display:grid;grid-template-columns:repeat(2,1fr);gap:10px;"></div>
+            </div>
+
+            <!-- SUBJECT MASTERY -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #ddd6fe;">📈</div>
+                    <div class="card-title">Subject Mastery</div>
+                </div>
+                <canvas id="subjectChart" style="max-height:200px;"></canvas>
+            </div>
+
+            <!-- ANALYTICS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #bbf7d0;">📊</div>
+                    <div class="card-title">Weekly Hours</div>
+                </div>
+                <canvas id="weeklyChart" style="max-height:200px;"></canvas>
+            </div>
+
+            <!-- ACHIEVEMENTS -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">🏆</div>
+                    <div class="card-title">Achievements</div>
+                </div>
+                <div id="badgesContainer" style="display:flex;gap:15px;flex-wrap:wrap;">
+                    <div class="badge locked" data-sessions="10"><div style="font-size:2rem;">🥉</div><div style="font-size:0.8rem;">Bronze</div></div>
+                    <div class="badge locked" data-sessions="50"><div style="font-size:2rem;">🥈</div><div style="font-size:0.8rem;">Silver</div></div>
+                    <div class="badge locked" data-sessions="100"><div style="font-size:2rem;">🥇</div><div style="font-size:0.8rem;">Gold</div></div>
+                    <div class="badge locked" data-sessions="200"><div style="font-size:2rem;">💎</div><div style="font-size:0.8rem;">Legend</div></div>
+                </div>
+            </div>
+
+            <!-- TODO LIST -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fed7aa;">✅</div>
+                    <div class="card-title">Smart Todo</div>
+                    <button class="btn btn-secondary" id="addTodoBtn" style="margin-left:auto;">+ Add</button>
+                </div>
+                <div id="todoList" style="display:flex;flex-direction:column;gap:10px;max-height:300px;overflow-y:auto;"></div>
+            </div>
+
+            <!-- NOTES VAULT -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fde68a;">📝</div>
+                    <div class="card-title">Notes Vault</div>
+                    <button class="btn btn-secondary" id="addNoteBtn" style="margin-left:auto;">+ Note</button>
+                </div>
+                <div id="notesList" style="display:flex;flex-direction:column;gap:10px;max-height:300px;overflow-y:auto;"></div>
+            </div>
+
+            <!-- TIMETABLE -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #ddd6fe;">📅</div>
+                    <div class="card-title">Today's Timetable</div>
+                    <button class="btn btn-secondary" id="addSlotBtn" style="margin-left:auto;">+ Add Slot</button>
+                </div>
+                <div id="timetableList" style="display:flex;flex-direction:column;gap:10px;"></div>
+            </div>
+
+            <!-- POMODORO -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">⏰</div>
+                    <div class="card-title">Pomodoro</div>
+                </div>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startTimer">Start</button>
+                    <button class="btn btn-secondary" id="resetTimer">Reset</button>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box"><div class="stat-value" id="todaySessions">0</div><div class="stat-label">Today</div></div>
+                    <div class="stat-box"><div class="stat-value" id="streakCount">0</div><div class="stat-label">Streak</div></div>
+                </div>
+            </div>
+
+            <!-- EXAM COUNTDOWN -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fecaca;">🎯</div>
+                    <div class="card-title">Exam Countdown</div>
+                </div>
+                <div class="input-group"><label>Exam Name</label><input type="text" id="examName" placeholder="JEE / NEET / Boards"></div>
+                <div class="input-group"><label>Exam Date</label><input type="date" id="examDate"></div>
+                <button class="btn btn-primary" id="setExam">Set Countdown</button>
+                <div class="countdown-display" id="countdownDisplay">Set your exam date</div>
+            </div>
+
+            <!-- LOFI -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #ddd6fe;">🎵</div>
+                    <div class="card-title">Lofi Music</div>
+                </div>
+                <div class="lofi-player">
+                    <select id="lofiSelect" style="flex:1;">
+                        <option value="jfKfPfyJRdk">Lofi Hip Hop Radio</option>
+                        <option value="5qap5aO4i9A">Chill Lofi Study</option>
+                    </select>
+                    <button class="btn btn-primary" id="playLofi">Play</button>
+                </div>
+                <iframe id="lofiFrame" width="100%" height="200" style="display:none;border-radius:12px;margin-top:15px;" frameborder="0"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- ALL MODALS -->
+    <div id="profileModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Edit Profile</h3>
+            <div class="input-group"><label>Name</label><input type="text" id="editName"></div>
+            <div class="input-group"><label>Photo URL</label><input type="text" id="editPic"></div>
+            <div class="input-group"><label>Class/Course</label><input type="text" id="editCourse"></div>
+            <div class="input-group"><label>Target Exam</label><input type="text" id="editTarget"></div>
+            <div class="input-group"><label>Bio</label><input type="text" id="editBio"></div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveProfile" style="flex:1;">Save</button>
+                <button class="btn btn-secondary" id="closeProfile" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="timetableModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Add Time Slot</h3>
+            <div class="input-group"><label>Time</label><input type="time" id="slotTime"></div>
+            <div class="input-group"><label>Subject/Task</label><input type="text" id="slotSubject"></div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveSlot" style="flex:1;">Add</button>
+                <button class="btn btn-secondary" id="closeSlot" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="todoModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Add Task</h3>
+            <div class="input-group"><label>Task</label><input type="text" id="todoText"></div>
+            <div class="input-group"><label>Priority</label><select id="todoPriority"><option value="high">🔥 High</option><option value="medium">⚡ Medium</option><option value="low">📌 Low</option></select></div>
+            <div class="input-group"><label>Deadline</label><input type="date" id="todoDeadline"></div>
+            <div class="input-group"><label>Subject</label><input type="text" id="todoSubject" placeholder="Physics, Maths, etc"></div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveTodo" style="flex:1;">Add</button>
+                <button class="btn btn-secondary" id="closeTodo" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="notesModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Add Note</h3>
+            <div class="input-group"><label>Subject</label><input type="text" id="noteSubject"></div>
+            <div class="input-group"><label>Note</label><textarea id="noteText" style="width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;font-family:inherit;min-height:100px;"></textarea></div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveNote" style="flex:1;">Save</button>
+                <button class="btn btn-secondary" id="closeNote" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="habitModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Add Habit</h3>
+            <div class="input-group"><label>Habit Name</label><input type="text" id="habitName" placeholder="e.g. 8 hours sleep"></div>
+            <div class="input-group"><label>Icon</label><input type="text" id="habitIcon" placeholder="😴" maxlength="2"></div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveHabit" style="flex:1;">Add</button>
+                <button class="btn btn-secondary" id="closeHabit" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FOCUS MODE OVERLAY -->
+    <div id="focusOverlay" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.95);z-index:9999;align-items:center;justify-content:center;flex-direction:column;color:white;">
+        <h1 style="font-size:3rem;margin-bottom:20px;">🔥 FOCUS MODE</h1>
+        <div id="focusTimer" style="font-size:5rem;font-weight:700;margin-bottom:30px;">25:00</div>
+        <p style="font-size:1.2rem;opacity:0.8;margin-bottom:40px;" id="focusQuote">No distractions. Just you and your goals.</p>
+        <button class="btn" id="exitFocusBtn" style="background:var(--danger);padding:15px 40px;font-size:1.1rem;">Exit Focus Mode</button>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+        if ('Notification' in window && Notification.permission === 'default') {
+            Notification.requestPermission();
+        }
+    </script>
+</body>
+</html>
