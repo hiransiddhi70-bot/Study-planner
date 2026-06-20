@@ -1,22 +1,86 @@
 {
-  "name": "Study Planner V1.5",
+  "name": "Study Planner V6.0 - Gamified",
   "short_name": "StudyPlan",
-  "description": "All-in-one productivity dashboard for students",
+  "description": "Gamified Study Planner with XP, Quests, Voice Notes, Glass + Glitch UI",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
-  "background_color": "#f8fafc",
-  "theme_color": "#6366f1",
-  "orientation": "portrait",
+  "background_color": "#0a0a0f",
+  "theme_color": "#8b5cf6",
+  "orientation": "portrait-primary",
+  "categories": ["education", "productivity", "utilities"],
   "icons": [
     {
-      "src": "https://via.placeholder.com/192/6366f1/ffffff?text=SP",
-      "sizes": "192x192",
-      "type": "image/png"
+      "src": "icons/icon-72x72.png",
+      "sizes": "72x72",
+      "type": "image/png",
+      "purpose": "any"
     },
     {
-      "src": "https://via.placeholder.com/512/6366f1/ffffff?text=SP",
+      "src": "icons/icon-96x96.png",
+      "sizes": "96x96",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-128x128.png",
+      "sizes": "128x128",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-144x144.png",
+      "sizes": "144x144",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-152x152.png",
+      "sizes": "152x152",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-384x384.png",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512x512.png",
       "sizes": "512x512",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "screenshots/home.png",
+      "sizes": "1080x1920",
+      "type": "image/png",
+      "form_factor": "narrow"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Start Pomodoro",
+      "short_name": "Pomodoro",
+      "description": "Quick start 25min focus session",
+      "url": "/?action=pomodoro",
+      "icons": [{ "src": "icons/pomo-96x96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Daily Quests",
+      "short_name": "Quests",
+      "description": "Check today's quests",
+      "url": "/?action=quests",
+      "icons": [{ "src": "icons/quest-96x96.png", "sizes": "96x96" }]
     }
   ]
 }
