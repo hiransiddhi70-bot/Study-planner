@@ -3,252 +3,201 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Study Planner ⚡</title>
-<button id="darkModeToggle" class="btn btn-secondary" style="position:absolute;top:20px;right:20px;">🌙</button>
+    <title>Study Planner V1.5</title>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#6366f1">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
-        <div class="header">
+        <!-- HEADER -->
+        <div class="header" style="position:relative;">
             <h1>📚 Study Planner ⚡</h1>
             <p>Your all-in-one productivity dashboard for students</p>
+            <button id="darkModeToggle" class="btn btn-secondary" style="position:absolute;top:20px;right:20px;">🌙</button>
         </div>
 
         <div class="grid">
             <!-- STUDENT PROFILE -->
-<div class="card" style="grid-column: 1 / -1;">
-    <div class="card-header">
-        <div class="card-icon" style="background: #c7d2fe;">👤</div>
-        <div class="card-title">My Profile</div>
-        <button class="btn btn-secondary" id="editProfileBtn" style="margin-left:auto;">Edit</button>
-    </div>
-    <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
-        <img id="profilePic" src="https://via.placeholder.com/80/6366f1/ffffff?text=You" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
-        <div style="flex:1;">
-            <h3 id="profileName" style="margin-bottom:5px;">Student Name</h3>
-            <p id="profileCourse" style="color:var(--text-light);margin-bottom:5px;">Class/Course</p>
-            <p id="profileTarget" style="color:var(--primary);font-weight:600;">Target: Not Set</p>
-            <p id="profileBio" style="color:var(--text-light);font-size:0.9rem;margin-top:8px;">Add your bio...</p>
-        </div>
-        <div class="stat-box">
-            <div class="stat-value" id="totalHours">0</div>
-            <div class="stat-label">Total Hours</div>
-        </div>
-    </div>
-</div>
-
-<!-- PROFILE EDIT MODAL -->
-<div id="profileModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
-    <div class="card" style="max-width:400px;width:90%;">
-        <h3 style="margin-bottom:20px;">Edit Profile</h3>
-        <div class="input-group">
-            <label>Name</label>
-            <input type="text" id="editName" placeholder="Tera naam">
-        </div>
-        <div class="input-group">
-            <label>Photo URL</label>
-            <input type="text" id="editPic" placeholder="https://image-link.jpg">
-        </div>
-        <div class="input-group">
-            <label>Class/Course</label>
-            <input type="text" id="editCourse" placeholder="12th Science / B.Tech CSE">
-        </div>
-        <div class="input-group">
-            <label>Target Exam</label>
-            <input type="text" id="editTarget" placeholder="JEE 2027 / NEET 2026">
-        </div>
-        <div class="input-group">
-            <label>Bio</label>
-            <input type="text" id="editBio" placeholder="AIR 1 laana hai 💪">
-        </div>
-        <div style="display:flex;gap:10px;">
-            <button class="btn btn-primary" id="saveProfile" style="flex:1;">Save</button>
-            <button class="btn btn-secondary" id="closeProfile" style="flex:1;">Cancel</button>
-        </div>
-    </div>
-</div>
-            <!-- POMODORO TIMER -->
-            <div class="card">
+            <div class="card" style="grid-column: 1 / -1;">
                 <div class="card-header">
-                    <div class="card-icon" style="background: #e0e7ff;">🍅</div>
-                    <div class="card-title">Pomodoro Timer</div>
+                    <div class="card-icon" style="background: #c7d2fe;">👤</div>
+                    <div class="card-title">My Profile</div>
+                    <button class="btn btn-secondary" id="editProfileBtn" style="margin-left:auto;">Edit</button>
                 </div>
-                <div class="timer-display" id="timer">25:00</div>
-                <div class="timer-controls">
-                    <button class="btn btn-primary" id="startBtn">Start</button>
-                    <button class="btn btn-secondary" id="resetBtn">Reset</button>
-                </div>
-                <div class="stat-grid">
-                    <div class="stat-box">
-                        <div class="stat-value" id="sessions">0</div>
-                        <div class="stat-label">Sessions Today</div>
+                <div style="display:flex;gap:20px;align-items:center;flex-wrap:wrap;">
+                    <img id="profilePic" src="https://via.placeholder.com/80/6366f1/ffffff?text=You" style="width:80px;height:80px;border-radius:50%;object-fit:cover;">
+                    <div style="flex:1;">
+                        <h3 id="profileName" style="margin-bottom:5px;">Student Name</h3>
+                        <p id="profileCourse" style="color:var(--text-light);margin-bottom:5px;">Class/Course</p>
+                        <p id="profileTarget" style="color:var(--primary);font-weight:600;">Target: Not Set</p>
+                        <p id="profileBio" style="color:var(--text-light);font-size:0.9rem;margin-top:8px;">Add your bio...</p>
                     </div>
                     <div class="stat-box">
-                        <div class="stat-value" id="streak">0</div>
-                        <div class="stat-label">Day Streak 🔥</div>
+                        <div class="stat-value" id="totalHours">0</div>
+                        <div class="stat-label">Total Hours</div>
                     </div>
                 </div>
             </div>
 
-            <!-- DAILY GOALS -->
-            
-               <div class="header" style="position:relative;">
-    <h1>📚 Study Planner ⚡</h1>
-    <p>Your all-in-one productivity dashboard for students</p>
-    <button id="darkModeToggle" class="btn btn-secondary" style="position:absolute;top:20px;right:20px;">🌙</button>
-</div>
-                <div class="input-group">
-                    <label>Set Today's Target Sessions</label>
-                    <input type="number" id="goalInput" placeholder="e.g. 8" min="1">
+            <!-- ACHIEVEMENTS -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">🏆</div>
+                    <div class="card-title">Achievements</div>
                 </div>
-                <button class="btn btn-primary" id="setGoalBtn" style="width:100%;">Set Goal</button>
-                <div class="progress-bar">
-                    <div class="progress-fill" id="goalProgress" style="width:0%"></div>
+                <div id="badgesContainer" style="display:flex;gap:15px;flex-wrap:wrap;">
+                    <div class="badge locked" data-sessions="10">
+                        <div style="font-size:2rem;">🥉</div>
+                        <div style="font-size:0.8rem;">Bronze</div>
+                        <div style="font-size:0.7rem;color:var(--text-light);">10 Sessions</div>
+                    </div>
+                    <div class="badge locked" data-sessions="50">
+                        <div style="font-size:2rem;">🥈</div>
+                        <div style="font-size:0.8rem;">Silver</div>
+                        <div style="font-size:0.7rem;color:var(--text-light);">50 Sessions</div>
+                    </div>
+                    <div class="badge locked" data-sessions="100">
+                        <div style="font-size:2rem;">🥇</div>
+                        <div style="font-size:0.8rem;">Gold</div>
+                        <div style="font-size:0.7rem;color:var(--text-light);">100 Sessions</div>
+                    </div>
+                    <div class="badge locked" data-sessions="200">
+                        <div style="font-size:2rem;">💎</div>
+                        <div style="font-size:0.8rem;">Legend</div>
+                        <div style="font-size:0.7rem;color:var(--text-light);">200 Sessions</div>
+                    </div>
                 </div>
-                <div style="text-align:center;margin-top:10px;font-weight:600;" id="goalText">Goal set nahi kiya</div>
+            </div>
+
+            <!-- TIMETABLE -->
+            <div class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #ddd6fe;">📅</div>
+                    <div class="card-title">Today's Timetable</div>
+                    <button class="btn btn-secondary" id="addSlotBtn" style="margin-left:auto;">+ Add Slot</button>
+                </div>
+                <div id="timetableList" style="display:flex;flex-direction:column;gap:10px;">
+                    <!-- Slots yahan aayenge -->
+                </div>
+            </div>
+
+            <!-- POMODORO TIMER -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon" style="background: #fef3c7;">⏰</div>
+                    <div class="card-title">Pomodoro Timer</div>
+                </div>
+                <div class="timer-display" id="timerDisplay">25:00</div>
+                <div class="timer-controls">
+                    <button class="btn btn-primary" id="startTimer">Start</button>
+                    <button class="btn btn-secondary" id="resetTimer">Reset</button>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-value" id="todaySessions">0</div>
+                        <div class="stat-label">Today</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-value" id="streakCount">0</div>
+                        <div class="stat-label">Streak</div>
+                    </div>
+                </div>
             </div>
 
             <!-- EXAM COUNTDOWN -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: #fef3c7;">⏳</div>
+                    <div class="card-icon" style="background: #fecaca;">🎯</div>
                     <div class="card-title">Exam Countdown</div>
                 </div>
                 <div class="input-group">
                     <label>Exam Name</label>
-                    <input type="text" id="examNameInput" placeholder="JEE / NEET / Boards">
+                    <input type="text" id="examName" placeholder="JEE / NEET / Boards">
                 </div>
                 <div class="input-group">
                     <label>Exam Date</label>
-                    <input type="date" id="examDateInput">
+                    <input type="date" id="examDate">
                 </div>
-                <button class="btn btn-primary" id="setExamBtn" style="width:100%;">Set Countdown</button>
-                <div style="text-align:center;margin-top:20px;" id="countdownDisplay">
-                    <div class="stat-label">Set your exam date</div>
-                </div>
+                <button class="btn btn-primary" id="setExam">Set Countdown</button>
+                <div class="countdown-display" id="countdownDisplay">Set your exam date</div>
             </div>
 
-            <!-- ASSIGNMENTS -->
+            <!-- LOFI PLAYER -->
             <div class="card">
                 <div class="card-header">
-                    <div class="card-icon" style="background: #dcfce7;">📝</div>
-                    <div class="card-title">Assignments</div>
+                    <div class="card-icon" style="background: #ddd6fe;">🎵</div>
+                    <div class="card-title">Lofi Music</div>
                 </div>
-                <div class="input-group">
-                    <label>Task</label>
-                    <input type="text" id="assignmentInput" placeholder="Math Chapter 5 HW">
+                <div class="lofi-player">
+                    <select id="lofiSelect" style="flex:1;">
+                        <option value="jfKfPfyJRdk">Lofi Hip Hop Radio</option>
+                        <option value="5qap5aO4i9A">Chill Lofi Study</option>
+                        <option value="rUxyKA_-grg">Lofi Girl Beats</option>
+                    </select>
+                    <button class="btn btn-primary" id="playLofi">Play</button>
                 </div>
-                <div class="input-group">
-                    <label>Due Date</label>
-                    <input type="date" id="dueDateInput">
-                </div>
-                <button class="btn btn-primary" id="addAssignmentBtn" style="width:100%;">Add Task</button>
-                <div class="task-list" id="assignmentList" style="margin-top:15px;"></div>
+                <iframe id="lofiFrame" width="100%" height="200" style="display:none;border-radius:12px;margin-top:15px;" frameborder="0"></iframe>
             </div>
+        </div>
+    </div>
 
-            <!-- HABIT TRACKER -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: #dbeafe;">📅</div>
-                    <div class="card-title">30-Day Habit Tracker</div>
-                </div>
-                <p style="color:var(--text-light);font-size:0.9rem;margin-bottom:10px;">Click on date to mark as done</p>
-                <div class="habit-calendar" id="habitCalendar"></div>
+    <!-- PROFILE EDIT MODAL -->
+    <div id="profileModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Edit Profile</h3>
+            <div class="input-group">
+                <label>Name</label>
+                <input type="text" id="editName" placeholder="Tera naam">
             </div>
-
-            <!-- MOOD TRACKER -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: #fce7f3;">😊</div>
-                    <div class="card-title">Mood Tracker</div>
-                </div>
-                <p style="text-align:center;color:var(--text-light);">How are you feeling today?</p>
-                <div class="mood-selector">
-                    <div class="mood-btn" data-mood="great">😄</div>
-                    <div class="mood-btn" data-mood="good">🙂</div>
-                    <div class="mood-btn" data-mood="okay">😐</div>
-                    <div class="mood-btn" data-mood="bad">😔</div>
-                    <div class="mood-btn" data-mood="awful">😭</div>
-                </div>
+            <div class="input-group">
+                <label>Photo URL</label>
+                <input type="text" id="editPic" placeholder="https://image-link.jpg">
             </div>
-
-            <!-- SUBJECT ANALYTICS -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: #e0e7ff;">📊</div>
-                    <div class="card-title">Subject Hours</div>
-                </div>
-                <div class="chart-container">
-                    <canvas id="subjectChart"></canvas>
-                </div>
+            <div class="input-group">
+                <label>Class/Course</label>
+                <input type="text" id="editCourse" placeholder="12th Science / B.Tech CSE">
             </div>
+            <div class="input-group">
+                <label>Target Exam</label>
+                <input type="text" id="editTarget" placeholder="JEE 2027 / NEET 2026">
+            </div>
+            <div class="input-group">
+                <label>Bio</label>
+                <input type="text" id="editBio" placeholder="AIR 1 laana hai 💪">
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveProfile" style="flex:1;">Save</button>
+                <button class="btn btn-secondary" id="closeProfile" style="flex:1;">Cancel</button>
+            </div>
+        </div>
+    </div>
 
-            <!-- FLASHCARDS -->
-            <div class="card">
-                <div class="card-header">
-                    <div class="card-icon" style="background: #fef3c7;">🃏</div>
-                    <div class="card-title">Flashcards</div>
-                </div>
-                <div class="flashcard" id="flashcard">
-                    <div class="flashcard-front" id="flashcardFront">Click to start</div>
-                    <div class="flashcard-back" id="flashcardBack">Answer here</div>
-                </div>
-                <button class="btn btn-secondary" id="nextCardBtn" style="width:100%;margin-top:15px;">Next Card</button>
-<!-- WEEKLY REPORT -->
-<div class="card">
-    <div class="card-header">
-        <div class="card-icon" style="background: #ddd6fe;">📊</div>
-        <div class="card-title">Weekly Report</div>
-    </div>
-    <button class="btn btn-primary" id="generateReport" style="width:100%;">Generate Report</button>
-    <div class="chart-container" style="margin-top:15px;">
-        <canvas id="weeklyChart"></canvas>
-    </div>
-</div>
-
-<!-- CGPA CALCULATOR -->
-<div class="card">
-    <div class="card-header">
-        <div class="card-icon" style="background: #fed7aa;">🧮</div>
-        <div class="card-title">CGPA Calculator</div>
-    </div>
-    <div class="input-group">
-        <label>Subject 1 Marks</label>
-        <input type="number" id="sub1" placeholder="Out of 100" max="100">
-    </div>
-    <div class="input-group">
-        <label>Subject 2 Marks</label>
-        <input type="number" id="sub2" placeholder="Out of 100" max="100">
-    </div>
-    <div class="input-group">
-        <label>Subject 3 Marks</label>
-        <input type="number" id="sub3" placeholder="Out of 100" max="100">
-    </div>
-    <button class="btn btn-primary" id="calcCGPA" style="width:100%;">Calculate CGPA</button>
-    <div style="text-align:center;margin-top:15px;" id="cgpaResult">
-        <div class="stat-label">Your CGPA</div>
-    </div>
-</div>
-
-<!-- LOFI PLAYER -->
-<div class="card">
-    <div class="card-header">
-        <div class="card-icon" style="background: #fbcfe8;">🎵</div>
-        <div class="card-title">Focus Beats</div>
-    </div>
-    <select class="input-group" id="musicSelect" style="margin-bottom:15px;width:100%;padding:12px;border:2px solid var(--border);border-radius:10px;">
-        <option value="">Select Lofi Beat</option>
-        <option value="https://cdn.pixabay.com/audio/2022/05/27/audio_1808fbf07a.mp3">Chill Lofi</option>
-        <option value="https://cdn.pixabay.com/audio/2022/08/02/audio_884fe92c21.mp3">Rainy Study</option>
-        <option value="https://cdn.pixabay.com/audio/2023/03/27/audio_e3e4b3a6a3.mp3">Deep Focus</option>
-    </select>
-    <audio id="lofiPlayer" controls style="width:100%;"></audio>
-</div>
+    <!-- TIMETABLE MODAL -->
+    <div id="timetableModal" style="display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.5);z-index:1000;align-items:center;justify-content:center;">
+        <div class="card" style="max-width:400px;width:90%;">
+            <h3 style="margin-bottom:20px;">Add Time Slot</h3>
+            <div class="input-group">
+                <label>Time</label>
+                <input type="time" id="slotTime">
+            </div>
+            <div class="input-group">
+                <label>Subject/Task</label>
+                <input type="text" id="slotSubject" placeholder="Maths / Physics / Break">
+            </div>
+            <div style="display:flex;gap:10px;">
+                <button class="btn btn-primary" id="saveSlot" style="flex:1;">Add</button>
+                <button class="btn btn-secondary" id="closeSlot" style="flex:1;">Cancel</button>
             </div>
         </div>
     </div>
 
     <script src="script.js"></script>
+    <script>
+        // PWA Service Worker
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('sw.js');
+        }
+    </script>
 </body>
 </html>
